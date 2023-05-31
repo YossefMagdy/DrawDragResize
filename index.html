@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resizable and Draggable</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/stylesheet.css">
+</head>
+
+<body class="position-relative">
+
+    <div id="tip2" class="tip-2 cursor">
+        <p>You Can Use Drag and Resize with Custom Shape only</p>
+    </div>
+
+    <nav class="position-fixed d-flex  vh-100 top-0 left-0 Navbarx">
+        
+            <div id="toolbar" class="flex-column vh-100 bg-black text-white overflow-hidden  d-flex NavBody ">
+                <h1 class="">Draw</h1>
+                <h6 class="">Resizable & Draggable</h6>
+    
+
+                <label for="Color " class="fw-semibold my-2">Color</label>
+                <input type="color" id="Color" name="stroke" class="form-control-color mt-1">
+                <label for="LineWeight " class="my-3 fw-semibold">Line weight</label>
+                <input type="number" name="" id="LineWeight" class="form-control my-2">
+                <button id="Clear" class="btn btn-dark">Clear</button>
+
+
+                <label for="" class="my-3 fw-semibold">Custom Shape's</label>
+                <select name="" id="ShapeChose" class="form-control">
+                    <option value="Rectangle">Rectangle</option>
+                    <option value="circle">circle</option>
+                </select>
+    
+                <h3  class="my-3 fw-semibold">Shape Size</h3>
+                <div id="Rectangle" class="">
+                    <div class="w-100 mb-2">
+                        <label for="width" class="my-2">width :</label>
+                        <input type="text" id="width" class="form-control ">
+                    </div>
+                    <div class="w-100">
+                        <label for="height" class="my-2">height :</label>
+                        <input type="text" id="height" class="form-control ">
+                    </div>
+                </div>
+    
+                
+                
+                <div id="circle" class="d-flex justify-content-center">
+                    <div class="w-100">
+                        <label for="width">Radius :</label>
+                        <input type="text" id="Radius" class="form-control ">
+                    </div>
+                
+                </div>
+    
+                <button id="Create"  class="btn btn-dark mt-2"  onclick="getValue()">Create</button>
+                <button  id="resize" class="btn btn-dark mt-2 d-none" onclick="changeSize()">Resize</button>
+    
+          
+    
+            </div>
+            <div class="openMenu bg-white shadow-lg d-flex justify-content-center align-items-center position-relative">
+
+                <i  id="pen" onclick="FreeDraw()" class="fa-solid fa-pen position-absolute pen cursor  shadow-lg"></i>
+                <p id="tip1" class="tip1">Use pen to draw </p>
+                <i id="CheckNav" class="fa-solid  fa-bars fa-2x fa-align-justify open  cursor"></i>
+            </div>
+        
+    </nav>
+
+
+
+    
+    <div class="container-fluid ">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="DrawingBoard">
+                    <canvas id="drawingBoard" class="overflow-hidden"></canvas>
+                </div>
+            </div>
+        </div>
+      
+    </div>
+
+    <script src="Js/main.js"></script>
+</body>
+
+</html>

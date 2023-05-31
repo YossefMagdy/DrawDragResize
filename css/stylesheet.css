@@ -1,0 +1,80 @@
+*{
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+}
+
+
+#toolbar{
+    width: 250px;
+    padding: 20px;
+    transition: 1s all;
+}
+.openMenu{
+    width: 60px;
+}
+
+.cursor{
+    cursor: pointer;
+}
+.pen{
+    top:40px;
+    transition: 1s all;
+}
+.Active{
+    background-color: black;
+    color: white;
+    padding: 10px;
+    border-radius: 20px;
+
+
+}
+
+::-webkit-scrollbar
+{
+    width: 10px;
+}
+::-webkit-scrollbar-track{
+    background-color: rgb(93, 88, 88);
+}
+::-webkit-scrollbar-thumb{
+    background-color: var(--background);
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+
+.tip1{
+    position: absolute;
+    top: 30px;
+    left: 73px;
+    color: white;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: gray;
+    
+}
+.tip1:after{
+    content: '';
+    position: absolute;
+    border: 9px solid;
+    border-color: transparent gray transparent transparent;
+    left: -18px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.tip-2{
+    font-size: 0.8em;
+    position: absolute;
+    bottom: 20px;
+    right: 50px;
+    color:white;
+
+    background-color: gray;
+    border-radius: 10px;
+    padding: 5px 10px;
+
+        transition: 1s all;
+}
