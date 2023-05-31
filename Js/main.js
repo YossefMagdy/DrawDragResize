@@ -86,6 +86,7 @@ function Getstyle() {
         ctx.stroke()
         ctx.beginPath();    
     }
+    localStorage.setItem('freestyle',JSON.stringify(freestyle))
 }
 
 
@@ -105,8 +106,10 @@ const draw = (e) => {
         ctx.lineTo(freex, freey)
 
         ctx.stroke()
-        
-    }
+
+        localStorage.setItem('freestyle',JSON.stringify(freestyle))
+
+        }
 }
 
 const drawTouch = (e) => {
@@ -124,7 +127,9 @@ const drawTouch = (e) => {
 
         ctx.lineTo(freex, freey)
         ctx.stroke()
-    }
+        localStorage.setItem('freestyle',JSON.stringify(freestyle))
+
+        }
 }
 let tip1 = document.getElementById('tip1')
 
@@ -149,6 +154,8 @@ toolbar.addEventListener('click', (e) => {
         ctx.clearRect(0, 0, canvas.width, canvas.height)
         freestyle=[]
         shapes=[]
+        localStorage.removeItem('freestyle')
+        localStorage.removeItem('shapes')
     }
 })
 
@@ -197,7 +204,6 @@ canvas.addEventListener('touchmove', drawTouch)
 
 
 let draw_shape = () => {
-
     ctx.clearRect(0, 0, canvas.width, canvas.height)
     Getstyle()
     for (let shape of shapes) {
@@ -213,7 +219,20 @@ let draw_shape = () => {
             ctx.stroke();
         }
     }
+    localStorage.setItem('shapes',JSON.stringify(shapes))
+
 }
+
+if(localStorage.getItem('freestyle')!=null){
+    freestyle=JSON.parse(localStorage.getItem('freestyle'))
+    Getstyle()
+}
+
+if(localStorage.getItem('shapes')!=null){
+    shapes=JSON.parse(localStorage.getItem('shapes'))
+    draw_shape()
+}
+
 
 circle.classList.add('d-none')
 
@@ -428,7 +447,7 @@ let mouse_dbclick = function (event) {
         toolbar.style.padding = 20 + 'px'
         draw()
         draw_shape()
-    }
+        }
 
 
     event.preventDefault();
@@ -483,7 +502,6 @@ function EditValue() {
             width.value = shapes[current_Shapeindex].width
             height.value = shapes[current_Shapeindex].height
 
-
         }
         else if (shapes[current_Shapeindex].type == 'circle') {
             circle.classList.add('d-block')
@@ -495,7 +513,6 @@ function EditValue() {
 
 
             Radius.value = shapes[current_Shapeindex].Radius
-
         }
     }
 }
