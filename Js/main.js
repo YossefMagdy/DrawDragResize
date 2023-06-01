@@ -352,9 +352,7 @@ let mouse_move = function (event) {
         return
     } else {
         ctx.beginPath(); 
-        startDraw == false;
-        paint=false
-        pen.classList.remove("Active")
+        
         let mousex = parseInt(event.clientX) - canvas.offsetLeft
         let mousey = parseInt(event.clientY) - canvas.offsetTop
 
