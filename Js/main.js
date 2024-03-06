@@ -206,7 +206,7 @@ canvas.addEventListener('touchmove', drawTouch)
 let draw_shape = () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
     Getstyle()
-    for (let shape of shapes) {
+        for (let shape of shapes) {
         if (shape.type == 'Rectangle') {
             ctx.beginPath();
             ctx.fillStyle = shape.color;
@@ -263,7 +263,7 @@ let height = document.getElementById('height')
 let Radius = document.getElementById('Radius')
 
 function getValue() {
-
+    
     let color = document.getElementById('Color')
     if (ShapeChose.value == 'Rectangle') {
 
@@ -285,13 +285,13 @@ let drag = false
 let Resize = false
 let isshape = function (x, y, shape) {
     if (shape.type == "Rectangle") {
-        let shape_left = shape.x
-        let shape_right = shape.x + shape.width
-        let shape_top = shape.y
-        let shape_bottom = shape.y + shape.height
+        let shape_left = shape.x - shape.width /1.2;
+        let shape_right = shape.x + shape.width /1.2;
+        let shape_top = shape.y - shape.height /1.2;
+        let shape_bottom = shape.y + shape.height /1.2;
 
         if (x > shape_left && x < shape_right && y > shape_top && y < shape_bottom) {
-            return true
+            return true;
         }
     }
     else if (shape.type == "circle") {
@@ -310,12 +310,12 @@ let mouse_down = function (event) {
     event.preventDefault();
     startx = parseInt(event.clientX) - canvas.offsetLeft
 
-
     starty = parseInt(event.clientY) - canvas.offsetTop
     let index = 0
     for (let shape of shapes) {
         if (isshape(startx, starty, shape)) {
             current_Shapeindex = index
+            
             drag = true
             return;
         } else {
