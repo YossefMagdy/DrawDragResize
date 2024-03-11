@@ -74,17 +74,25 @@ CheckNav.addEventListener('click', function () {
 
 
 function Getstyle() {
+
     if (freestyle.length > 0) {
         ctx.lineWidth = LineWeight
         ctx.lineCap = 'round'
         ctx.strokeStyle = Color.value
 
         for (let x of freestyle) {
+            if(x.x1=='empty'){
+                ctx.stroke()
+                ctx.beginPath(); 
+            }
+            ctx.stroke()
 
             ctx.lineTo(x.x1, x.y1)
+
         }
         ctx.stroke()
         ctx.beginPath();    
+
     }
     localStorage.setItem('freestyle',JSON.stringify(freestyle))
 }
@@ -189,6 +197,7 @@ canvas.addEventListener('mouseup', (e) => {
     paint = false
     ctx.stroke()
     ctx.beginPath()
+    freestyle.push({ x1: 'empty', y1: 'empty' })
 })
 canvas.addEventListener('touchend', (e) => {
     paint = false
